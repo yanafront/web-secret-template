@@ -28,7 +28,11 @@
   color: #1B1B1B;
   width: 100%;
 }
-
+@media (max-width: 1170px) {
+  .Catalog {
+    padding: 30px;
+  }
+}
 @media (max-width: 768px) {
   .Catalog {
     display: flex;
