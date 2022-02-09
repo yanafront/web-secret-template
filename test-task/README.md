@@ -18,5 +18,8 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+## Info
 Время работы: 3 часа
+Что можно сделать лучше: переписать на TypeScript, настроить eslint, axios, и т.п
+Компоненты формы вынести и описать отдельно
+Логику по фильрам вынести в useReducer 
