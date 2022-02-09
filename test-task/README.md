@@ -23,3 +23,4 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 Что можно сделать лучше: переписать на TypeScript, настроить eslint, axios, и т.п
 Компоненты формы вынести и описать отдельно
 Логику по фильрам вынести в useReducer 
+Да в целом все нужно перделать, это быстрое решение :)
