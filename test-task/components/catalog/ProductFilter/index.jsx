@@ -6,8 +6,6 @@ export const MULTIPLE_FILTER_TYPE = "multiple";
 
 export const ProductFilter = ({ countProducts, filters }) => {
     const [priceFilter, setPriceFilter] = useState();
-    const [minValue, setMinValue] = useState();
-    const [maxValue, setMaxValue] = useState();
     const [multipleFilter, setMultipleFilter] = useState();
     const router = useRouter();
 
@@ -50,7 +48,12 @@ export const ProductFilter = ({ countProducts, filters }) => {
               [nameFilter]: val
             },
         });
-    } 
+    }
+
+    const getIsChecked = (index, filter, val) => {
+        const params = `${filter.slug}[${index}]`;
+        return router.query[params] === val;
+    };
 
     useEffect(() => {
         (filters || []).filter((el) => {
@@ -63,6 +66,8 @@ export const ProductFilter = ({ countProducts, filters }) => {
             }
         })
     }, [filters]);
+
+
     return (
         <div className={styles.ProductFilter}>
             <div className={styles.ProductFilter__CountProducts}>
@@ -87,7 +92,7 @@ export const ProductFilter = ({ countProducts, filters }) => {
                     </div>
                     {(multipleFilter.items || []).map((item, index) => (
                         <div key={index} className={styles.ProductFilter__CheckboxContainer}>
-                            <input type="checkbox" name={item.title} id={item.title} onChange={(event) => onChangeMultipleFilter(multipleFilter, item.value, event, index)} />
+                            <input checked={getIsChecked(index, multipleFilter, item.value)} type="checkbox" name={item.title} id={item.title} onChange={(event) => onChangeMultipleFilter(multipleFilter, item.value, event, index)} />
                             <label htmlFor={item.title}>{item.title}</label>
                         </div>
                     ))}
